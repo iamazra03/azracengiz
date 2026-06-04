@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Azra Cengiz — MIS Student · Data Analyst · Web Developer</title>
-<meta name="description" content="Azra Cengiz — Management Information Systems student, aspiring Data Analyst and Freelance Web Developer. A personal portfolio built with Python, SQL and modern web technologies." />
+<title>Azra Cengiz — YBS Öğrencisi · Veri Analisti · Web Geliştirici</title>
+<meta name="description" content="Azra Cengiz — Yönetim Bilişim Sistemleri öğrencisi, Veri Analisti adayı ve Serbest Web Geliştirici. Python, SQL ve modern web teknolojileriyle hazırlanmış kişisel portföy." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -95,6 +95,11 @@ header.scrolled{
 .nav-cta:hover{background:linear-gradient(120deg,var(--violet),var(--violet-deep)) !important}
 .burger{display:none;background:none;border:1px solid var(--border);border-radius:10px;padding:9px;cursor:pointer}
 .burger span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;transition:.3s;border-radius:2px}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang-toggle{display:inline-flex;align-items:center;gap:2px;background:var(--surface);border:1px solid var(--border-strong);border-radius:100px;padding:3px}
+.lang-toggle .lt-opt{font-family:var(--font-display);font-size:.74rem;font-weight:600;letter-spacing:.04em;color:var(--muted);padding:5px 11px;border-radius:100px;cursor:pointer;transition:all .25s;user-select:none}
+.lang-toggle .lt-opt:hover{color:var(--text)}
+.lang-toggle .lt-opt.active{color:#fff;background:linear-gradient(120deg,var(--violet-deep),var(--violet))}
 /* ---------- Layout ---------- */
 section{max-width:var(--maxw);margin:0 auto;padding:80px 24px}
 .eyebrow{
@@ -300,15 +305,11 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
   display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
 .footer-name{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;line-height:1;
   text-decoration:none;display:inline-flex;flex-wrap:wrap;justify-content:center;
-  font-size:clamp(2.8rem,11vw,6rem);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+  font-size:clamp(1.4rem,5vw,2.4rem);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .footer-name:hover{transform:scale(1.04)}
 .footer-name .ch{display:inline-block;animation:bob 2.8s ease-in-out infinite;animation-delay:var(--d);
-  text-shadow:0 6px 30px rgba(124,92,255,0.25)}
+  background:linear-gradient(120deg,var(--violet),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
 .footer-name .ch.space{width:.32em}
-.footer-name .ch:nth-child(4n+1){color:var(--violet)}
-.footer-name .ch:nth-child(4n+2){color:var(--blue)}
-.footer-name .ch:nth-child(4n+3){color:var(--pink)}
-.footer-name .ch:nth-child(4n){color:var(--amber)}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 .footer-tag{color:var(--muted);font-size:1rem;font-weight:500;max-width:520px}
 .footer-tag .spark{display:inline-block;color:var(--amber);animation:spin 4s linear infinite}
@@ -365,40 +366,42 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
 <header id="header">
   <nav class="nav">
     <a href="#hero" class="logo"><span>Azra&nbsp;Cengiz</span></a>
-    <div class="nav-links" id="navLinks">
-      <a href="#hakkimda">About</a>
-      <a href="#deneyim">Experience</a>
-      <a href="#egitim">Education</a>
-      <a href="#yetenekler">Skills</a>
-      <a href="#projeler">Projects</a>
-      <a href="#iletisim" class="nav-cta">Get in Touch</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="#hakkimda" data-i18n="nav.about">Hakkımda</a>
+        <a href="#deneyim" data-i18n="nav.experience">Deneyim</a>
+        <a href="#egitim" data-i18n="nav.education">Eğitim</a>
+        <a href="#yetenekler" data-i18n="nav.skills">Yetenekler</a>
+        <a href="#projeler" data-i18n="nav.projects">Projeler</a>
+        <a href="#iletisim" class="nav-cta" data-i18n="nav.contact">İletişime Geç</a>
+      </div>
+      <div class="lang-toggle" id="langToggle">
+        <span class="lt-opt active" data-lang="tr">TR</span>
+        <span class="lt-opt" data-lang="en">EN</span>
+      </div>
+      <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
-    <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
   <div class="hero-text">
-    <div class="badge"><span class="live"></span>Open to new projects and collaborations</div>
-    <h1 id="hakkimda">Hi, I’m <span class="grad">Azra Cengiz</span></h1>
-    <div class="role-line">
-      MIS Student <span class="sep">/</span> Aspiring Data Analyst <span class="sep">/</span> Web Developer
+    <div class="badge" data-i18n="hero.badge"><span class="live"></span>Yeni projelere ve iş birliklerine açık</div>
+    <h1 id="hakkimda" data-i18n="hero.h1">Merhaba, ben <span class="grad">Azra Cengiz</span></h1>
+    <div class="role-line" data-i18n="hero.role">
+      YBS Öğrencisi <span class="sep">/</span> Veri Analisti Adayı <span class="sep">/</span> Web Geliştirici
     </div>
-    <p class="about">
-      I’m a final-year Management Information Systems (MIS) student at Akdeniz University.
-      I graduated in Computer Programming and transferred to this department through the DGS vertical transfer exam.
-      I’m developing myself as a Data Analyst with Python and SQL.
-      Outside of school I’ve completed freelance web projects, and I keep up with current
-      technologies through certificates from IBM, Patika and BTK Akademi.
+    <p class="about" data-i18n="hero.about">
+      Akdeniz Üniversitesi Yönetim Bilişim Sistemleri (YBS) bölümünde son sınıf öğrencisiyim. Bilgisayar Programcılığı’ndan mezun oldum ve DGS dikey geçiş sınavıyla bu bölüme geçiş yaptım. Python ve SQL ile kendimi Veri Analisti olarak geliştiriyorum. Okul dışında serbest web projeleri tamamladım ve IBM, Patika ile BTK Akademi’den aldığım sertifikalarla güncel teknolojileri takip ediyorum.
     </p>
     <div class="cta-row">
       <a href="#projeler" class="btn btn-primary">
-        View My Projects
+        <span data-i18n="hero.cta.projects">Projelerimi Gör</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="#iletisim" class="btn btn-ghost">
-        Get in Touch
+        <span data-i18n="hero.cta.contact">İletişime Geç</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6l8 6 8-6M4 6v12h16V6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
@@ -412,13 +415,13 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
 
 <!-- ============ CONTACT STRIP ============ -->
 <div class="contact-strip reveal">
-  <a class="contact-card" href="mailto:iamazra03@gmail.com">
-    <span class="ci ic-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
-    <span><small>Email</small><strong class="mail">iamazra03@gmail.com</strong></span>
-  </a>
   <a class="contact-card" href="#iletisim">
     <span class="ci ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-    <span><small>Location</small><strong>Antalya, Turkey</strong></span>
+    <span><small data-i18n="contact.location">Konum</small><strong data-i18n="contact.locationValue">Antalya, Türkiye</strong></span>
+  </a>
+  <a class="contact-card" href="mailto:iamazra03@gmail.com">
+    <span class="ci ic-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+    <span><small data-i18n="contact.email">E-posta</small><strong class="mail">iamazra03@gmail.com</strong></span>
   </a>
   <a class="contact-card" href="https://www.linkedin.com/in/azra-cengiz-2315032aa/" target="_blank" rel="noopener">
     <span class="ci ic-pink"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 17V10.5H6.2V17h2.14zM7.27 9.5a1.24 1.24 0 100-2.48 1.24 1.24 0 000 2.48zM18 17v-3.57c0-1.9-.4-3.36-2.62-3.36-1.06 0-1.78.58-2.07 1.13h-.03V10.5h-2.06V17h2.14v-3.21c0-.85.16-1.67 1.21-1.67 1.04 0 1.05.97 1.05 1.73V17H18z"/></svg></span>
@@ -433,27 +436,27 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
 <!-- ============ EXPERIENCE ============ -->
 <section id="deneyim">
   <div class="reveal">
-    <span class="eyebrow">Career Journey</span>
-    <h2 class="section-title">Experience</h2>
-    <p class="section-sub">From freelance projects to internships — a journey that turns into practice.</p>
+    <span class="eyebrow" data-i18n="exp.eyebrow">Kariyer Yolculuğu</span>
+    <h2 class="section-title" data-i18n="exp.title">Deneyim</h2>
+    <p class="section-sub" data-i18n="exp.sub">Serbest projelerden stajlara — pratiğe dönüşen bir yolculuk.</p>
   </div>
   <div class="timeline">
     <div class="tl-item reveal">
       <span class="tl-dot active"></span>
       <div class="tl-card">
-        <span class="tl-date">June 2026 — Present <span class="now-tag"><span class="live"></span>Now</span></span>
-        <h3>Sales Assistant Intern</h3>
+        <span class="tl-date" data-i18n="exp.1.date">Haziran 2026 — Günümüz <span class="now-tag"><span class="live"></span>Şimdi</span></span>
+        <h3 data-i18n="exp.1.role">Satış Asistanı Stajyeri</h3>
         <div class="tl-org">BIGStation · Antalya</div>
-        <p>Taking an active role in sales and customer relations processes while gaining hands-on field experience.</p>
+        <p data-i18n="exp.1.desc">Satış ve müşteri ilişkileri süreçlerinde aktif rol alarak sahada uygulamalı deneyim kazanıyorum.</p>
       </div>
     </div>
     <div class="tl-item reveal">
       <span class="tl-dot"></span>
       <div class="tl-card">
-        <span class="tl-date">June 2025</span>
-        <h3>Freelance Web Developer</h3>
-        <div class="tl-org">Gursoy Construction &amp; PMB Curtain Walling · London (Remote)</div>
-        <p>Designed and launched the corporate websites of two different companies end-to-end; carried out interface and user-experience optimizations.</p>
+        <span class="tl-date" data-i18n="exp.2.date">Haziran 2025</span>
+        <h3 data-i18n="exp.2.role">Serbest Web Geliştirici</h3>
+        <div class="tl-org" data-i18n="exp.2.org">Gursoy Construction &amp; PMB Curtain Walling · Londra (Uzaktan)</div>
+        <p data-i18n="exp.2.desc">İki farklı şirketin kurumsal web sitelerini uçtan uca tasarladım ve yayına aldım; arayüz ve kullanıcı deneyimi optimizasyonları gerçekleştirdim.</p>
         <div class="tl-links">
           <a class="tl-link" href="https://pmb-curtainwalling.co.uk/" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M21 3l-9 9M21 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -469,10 +472,10 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
     <div class="tl-item reveal">
       <span class="tl-dot"></span>
       <div class="tl-card">
-        <span class="tl-date">July 2024 — August 2024</span>
-        <h3>Computer Programmer Intern</h3>
-        <div class="tl-org">Ahi Evran University · Kırşehir</div>
-        <p>Provided technical support in IT processes and assisted the software unit.</p>
+        <span class="tl-date" data-i18n="exp.3.date">Temmuz 2024 — Ağustos 2024</span>
+        <h3 data-i18n="exp.3.role">Bilgisayar Programcısı Stajyeri</h3>
+        <div class="tl-org" data-i18n="exp.3.org">Ahi Evran Üniversitesi · Kırşehir</div>
+        <p data-i18n="exp.3.desc">BT süreçlerinde teknik destek sağladım ve yazılım birimine destek verdim.</p>
       </div>
     </div>
   </div>
@@ -481,29 +484,29 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
 <!-- ============ EDUCATION ============ -->
 <section id="egitim">
   <div class="reveal">
-    <span class="eyebrow">Academic Background</span>
-    <h2 class="section-title">Education</h2>
-    <p class="section-sub">An academic foundation stretching from programming to management information systems, strengthened by the DGS transfer.</p>
+    <span class="eyebrow" data-i18n="edu.eyebrow">Akademik Geçmiş</span>
+    <h2 class="section-title" data-i18n="edu.title">Eğitim</h2>
+    <p class="section-sub" data-i18n="edu.sub">Programlamadan yönetim bilişim sistemlerine uzanan, DGS geçişiyle güçlenen akademik bir temel.</p>
   </div>
   <div class="edu-grid">
     <div class="edu-card reveal">
       <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></div>
-      <span class="lvl">Bachelor’s Degree</span>
-      <h3>Akdeniz University</h3>
-      <div class="field">Management Information Systems (MIS)</div>
+      <span class="lvl" data-i18n="edu.1.lvl">Lisans</span>
+      <h3 data-i18n="edu.1.school">Akdeniz Üniversitesi <span class="now-tag"><span class="live"></span>Şimdi</span></h3>
+      <div class="field" data-i18n="edu.1.field">Yönetim Bilişim Sistemleri&nbsp;&nbsp;(YBS)</div>
       <div class="meta">
-        <span class="chip">September 2025 — Present</span>
-        <span class="chip">Final Year</span>
+        <span class="chip" data-i18n="edu.1.chip1">Eylül 2025</span>
+        <span class="chip" data-i18n="edu.1.chip2">4. Sınıf</span>
       </div>
     </div>
     <div class="edu-card reveal">
       <div class="edu-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></div>
-      <span class="lvl">Associate Degree</span>
-      <h3>Ahi Evran University</h3>
-      <div class="field">Computer Programming</div>
+      <span class="lvl" data-i18n="edu.2.lvl">Ön Lisans</span>
+      <h3 data-i18n="edu.2.school">Ahi Evran Üniversitesi</h3>
+      <div class="field" data-i18n="edu.2.field">Bilgisayar Programcılığı</div>
       <div class="meta">
-        <span class="chip gpa">GPA: 3.01 / 4.00</span>
-        <span class="chip">Vertical Transfer (DGS)</span>
+        <span class="chip gpa" data-i18n="edu.2.chip1">GNO: 3.01 / 4.00</span>
+        <span class="chip" data-i18n="edu.2.chip2">Dikey Geçiş&nbsp;&nbsp;(DGS)</span>
       </div>
     </div>
   </div>
@@ -512,60 +515,61 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
 <!-- ============ SKILLS ============ -->
 <section id="yetenekler">
   <div class="reveal">
-    <span class="eyebrow">Competencies</span>
-    <h2 class="section-title">Skills</h2>
-    <p class="section-sub">My technical toolkit spanning from data analysis to web development, alongside my people-focused skills.</p>
+    <span class="eyebrow" data-i18n="skills.eyebrow">Yetkinlikler</span>
+    <h2 class="section-title" data-i18n="skills.title">Yetenekler</h2>
+    <p class="section-sub" data-i18n="skills.sub">Veri analizinden web geliştirmeye uzanan teknik araç setim ve insan odaklı becerilerim.</p>
   </div>
   <div class="skills-grid">
     <div class="skill-group reveal">
       <div class="sg-head">
         <span class="sg-ic ic-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <h3>Technical Skills</h3>
+        <h3 data-i18n="skills.tech">Teknik Yetenekler</h3>
       </div>
       <div class="tags">
-        <span class="tag">Python · Data Analysis</span>
-        <span class="tag">SQL &amp; Databases</span>
         <span class="tag">HTML5</span>
         <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
         <span class="tag">WordPress</span>
+        <span class="tag" data-i18n="skills.tag.network">Temel Ağ Teknolojileri</span>
+        <span class="tag" data-i18n="skills.tag.python">Python · Veri Analizi</span>
+        <span class="tag" data-i18n="skills.tag.sql">SQL &amp; Veritabanları</span>
         <span class="tag">Git &amp; GitHub</span>
       </div>
     </div>
     <div class="skill-group reveal">
       <div class="sg-head">
         <span class="sg-ic ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
-        <h3>Office Tools</h3>
+        <h3 data-i18n="skills.office">Ofis Araçları</h3>
       </div>
       <div class="tags">
-        <span class="tag">Excel · Data Functions</span>
-        <span class="tag">Excel · Tables</span>
+        <span class="tag">Microsoft Excel</span>
         <span class="tag">Microsoft Word</span>
       </div>
     </div>
     <div class="skill-group reveal">
       <div class="sg-head">
         <span class="sg-ic ic-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></span>
-        <h3>Foreign Language</h3>
+        <h3 data-i18n="skills.lang">Yabancı Dil</h3>
       </div>
       <div class="lang-bar">
-        <div class="lb-top"><span>English</span><span>B1 Level</span></div>
+        <div class="lb-top"><span data-i18n="skills.lang.en">İngilizce</span><span data-i18n="skills.lang.level">B1 Seviyesi</span></div>
         <div class="lb-track"><div class="lb-fill" data-w="58%"></div></div>
       </div>
     </div>
     <div class="skill-group reveal">
       <div class="sg-head">
         <span class="sg-ic ic-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg></span>
-        <h3>Soft Skills</h3>
+        <h3 data-i18n="skills.soft">Kişisel Beceriler</h3>
       </div>
       <ul class="soft-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Analytical inquiry &amp; root-cause analysis</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Cross-disciplinary communication</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Solution-oriented approach &amp; time management</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Fast adaptation</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Active listening &amp; prioritization</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Planning &amp; delegation</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Empathy</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Body language &amp; public speaking</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="soft.1">Analitik sorgulama &amp; kök neden analizi</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="soft.2">Disiplinler arası iletişim</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="soft.3">Çözüm odaklı yaklaşım &amp; zaman yönetimi</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="soft.4">Hızlı adaptasyon</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="soft.5">Aktif dinleme &amp; önceliklendirme</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="soft.6">Planlama &amp; delegasyon</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="soft.7">Empati</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="soft.8">Beden dili &amp; topluluk önünde konuşma</span></li>
       </ul>
     </div>
   </div>
@@ -574,19 +578,19 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
 <!-- ============ PROJECTS ============ -->
 <section id="projeler">
   <div class="reveal">
-    <span class="eyebrow">Selected Work</span>
-    <h2 class="section-title">Projects</h2>
-    <p class="section-sub">Live corporate web projects that I designed and launched end-to-end.</p>
+    <span class="eyebrow" data-i18n="proj.eyebrow">Seçili Çalışmalar</span>
+    <h2 class="section-title" data-i18n="proj.title">Projeler</h2>
+    <p class="section-sub" data-i18n="proj.sub">Uçtan uca tasarlayıp yayına aldığım canlı kurumsal web projeleri.</p>
   </div>
   <div class="proj-grid">
     <a class="proj-card reveal" href="https://pmb-curtainwalling.co.uk/" target="_blank" rel="noopener">
       <div class="proj-thumb pt-1"><span class="pmark">PMB</span></div>
       <div class="proj-body">
-        <span class="ptag">Corporate Website · London</span>
+        <span class="ptag" data-i18n="proj.1.tag">Kurumsal Web Sitesi · Londra</span>
         <h3>PMB Curtain Walling</h3>
-        <p>A corporate website designed and launched end-to-end for a façade systems company, including interface and user-experience optimizations.</p>
-        <div class="proj-stack"><span>HTML5</span><span>CSS3</span><span>WordPress</span><span>UX</span></div>
-        <span class="proj-visit">Visit Site
+        <p data-i18n="proj.1.desc">Cephe sistemleri firması için uçtan uca tasarlanıp yayına alınan, arayüz ve kullanıcı deneyimi optimizasyonlarını içeren kurumsal bir web sitesi.</p>
+        <div class="proj-stack"><span>HTML5</span><span>CSS3</span><span>JS</span><span>UX</span><span>UI</span><span data-i18n="proj.responsive">Mobil Uyumlu</span></div>
+        <span class="proj-visit"><span data-i18n="proj.visit">Siteyi Ziyaret Et</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
       </div>
@@ -594,11 +598,11 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
     <a class="proj-card reveal" href="https://www.gursoyconstruction.com/" target="_blank" rel="noopener">
       <div class="proj-thumb pt-2"><span class="pmark">GURSOY</span></div>
       <div class="proj-body">
-        <span class="ptag">Corporate Website · London</span>
+        <span class="ptag" data-i18n="proj.2.tag">Kurumsal Web Sitesi · Londra</span>
         <h3>Gursoy Construction</h3>
-        <p>A modern, brand-aligned website for a construction company, launched through full-cycle design and development.</p>
-        <div class="proj-stack"><span>HTML5</span><span>CSS3</span><span>WordPress</span><span>UI</span></div>
-        <span class="proj-visit">Visit Site
+        <p data-i18n="proj.2.desc">Bir inşaat firması için marka kimliğiyle uyumlu, modern bir web sitesi; uçtan uca tasarım ve geliştirme süreciyle yayına alındı.</p>
+        <div class="proj-stack"><span>HTML5</span><span>CSS3</span><span>JS</span><span>UX</span><span>UI</span><span data-i18n="proj.responsive">Mobil Uyumlu</span></div>
+        <span class="proj-visit"><span data-i18n="proj.visit">Siteyi Ziyaret Et</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
       </div>
@@ -609,33 +613,37 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
 <!-- ============ CERTIFICATES ============ -->
 <section id="sertifikalar">
   <div class="reveal">
-    <span class="eyebrow">Growth &amp; Contribution</span>
-    <h2 class="section-title">Certificates &amp; Volunteering</h2>
-    <p class="section-sub">Trainings that document a habit of continuous learning, and work that gives back to the community.</p>
+    <span class="eyebrow" data-i18n="cert.eyebrow">Gelişim &amp; Katkı</span>
+    <h2 class="section-title" data-i18n="cert.title">Sertifikalar &amp; Gönüllülük</h2>
+    <p class="section-sub" data-i18n="cert.sub">Sürekli öğrenme alışkanlığını belgeleyen eğitimler ve topluma katkı sağlayan çalışmalar.</p>
   </div>
   <div class="cert-grid">
     <div class="cert-card reveal">
       <span class="cc-ic ic-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg></span>
-      <div><h4>Data Science Path</h4><small>Patika.dev</small></div>
+      <div><h4 data-i18n="cert.1">Veri Bilimi Patikası</h4><small>Patika.dev</small></div>
     </div>
     <div class="cert-card reveal">
       <span class="cc-ic ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg></span>
-      <div><h4>Beginner Frontend Web Development Path</h4><small>Patika.dev</small></div>
+      <div><h4 data-i18n="cert.2">Başlangıç Frontend Web Geliştirme Patikası</h4><small>Patika.dev</small></div>
     </div>
     <div class="cert-card reveal">
       <span class="cc-ic ic-pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg></span>
-      <div><h4>Coding with IBM: CyberStart Program</h4><small>IBM &amp; Kodluyoruz</small></div>
+      <div><h4 data-i18n="cert.3">IBM ile Kodluyoruz: CyberStart Programı</h4><small>IBM &amp; Kodluyoruz</small></div>
     </div>
     <div class="cert-card reveal">
       <span class="cc-ic ic-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg></span>
-      <div><h4>Advanced Entrepreneurship Training</h4><small>KOSGEB</small></div>
+      <div><h4 data-i18n="cert.4">İleri Düzey Girişimcilik Eğitimi</h4><small>KOSGEB</small></div>
+    </div>
+    <div class="cert-card reveal">
+      <span class="cc-ic ic-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg></span>
+      <div><h4 data-i18n="cert.5">B1 İngilizce Sertifikası</h4><small>American Life</small></div>
     </div>
   </div>
   <div class="volunteer reveal">
     <span class="v-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg></span>
     <div>
-      <h3>Volunteering — “Kod Adı Çocuk” Community</h3>
-      <p>Volunteered with the “Kod Adı Çocuk” community at Ahi Evran University, Kırşehir, delivering introductory robotics and coding workshops for children.</p>
+      <h3 data-i18n="cert.vol.title">Gönüllülük — “Kod Adı Çocuk” Topluluğu</h3>
+      <p data-i18n="cert.vol.desc">Kırşehir’deki Ahi Evran Üniversitesi’nde “Kod Adı Çocuk” topluluğunda gönüllü olarak çocuklara giriş seviyesinde robotik ve kodlama atölyeleri verdim.</p>
     </div>
   </div>
 </section>
@@ -643,8 +651,8 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
 <!-- ============ CONTACT CTA ============ -->
 <section id="iletisim">
   <div class="contact-cta reveal">
-    <h2>Let’s work together?</h2>
-    <p>Data analysis, web development or a new freelance project — your idea is just one message away.</p>
+    <h2 data-i18n="cta.title">Birlikte çalışalım mı?</h2>
+    <p data-i18n="cta.text">Veri analizi, web geliştirme ya da yeni bir serbest proje — fikriniz yalnızca bir mesaj uzağınızda.</p>
     <a href="mailto:iamazra03@gmail.com" class="btn btn-primary cta-mail">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
       iamazra03@gmail.com
@@ -658,7 +666,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
   <div class="footer-blob b3"></div>
   <div class="footer-inner">
     <a href="#hero" class="footer-name" aria-label="Azra Cengiz"><span class="ch" style="--d:0.00s">A</span><span class="ch" style="--d:0.09s">z</span><span class="ch" style="--d:0.18s">r</span><span class="ch" style="--d:0.27s">a</span><span class="ch space" aria-hidden="true"></span><span class="ch" style="--d:0.36s">C</span><span class="ch" style="--d:0.45s">e</span><span class="ch" style="--d:0.54s">n</span><span class="ch" style="--d:0.63s">g</span><span class="ch" style="--d:0.72s">i</span><span class="ch" style="--d:0.81s">z</span></a>
-    <p class="footer-tag">Aspiring Data Analyst &amp; Web Developer — always building, always curious <span class="spark">✦</span></p>
+    <p class="footer-tag" data-i18n="footer.tag">Veri Analisti &amp; Web Geliştirici Adayı — her zaman üreten, her zaman meraklı <span class="spark">✦</span></p>
     <div class="footer-social">
       <a href="mailto:iamazra03@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
       <a href="https://www.linkedin.com/in/azra-cengiz-2315032aa/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 17V10.5H6.2V17h2.14zM7.27 9.5a1.24 1.24 0 100-2.48 1.24 1.24 0 000 2.48zM18 17v-3.57c0-1.9-.4-3.36-2.62-3.36-1.06 0-1.78.58-2.07 1.13h-.03V10.5h-2.06V17h2.14v-3.21c0-.85.16-1.67 1.21-1.67 1.04 0 1.05.97 1.05 1.73V17H18z"/></svg></a>
@@ -666,9 +674,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
     </div>
     <a href="#hero" class="to-top">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Back to top
+      <span data-i18n="footer.top">Başa dön</span>
     </a>
-    <p class="footer-copy">© 2026 · Crafted with <span class="heart">♥</span> in Antalya, Turkey</p>
+    <p class="footer-copy" data-i18n="footer.copy">© 2026 · Antalya, Türkiye’de <span class="heart">♥</span> ile hazırlandı</p>
   </div>
 </footer>
 
@@ -698,6 +706,30 @@ const lio=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ langFill.style.width=langFill.dataset.w; lio.unobserve(e.target);} });
 },{threshold:0.5});
 if(langFill) lio.observe(langFill);
+
+/* ---------- Language switch (TR / EN) ---------- */
+const I18N = {"nav.about": {"tr": "Hakkımda", "en": "About"}, "nav.experience": {"tr": "Deneyim", "en": "Experience"}, "nav.education": {"tr": "Eğitim", "en": "Education"}, "nav.skills": {"tr": "Yetenekler", "en": "Skills"}, "nav.projects": {"tr": "Projeler", "en": "Projects"}, "nav.contact": {"tr": "İletişime Geç", "en": "Get in Touch"}, "hero.badge": {"tr": "<span class=\"live\"></span>Yeni projelere ve iş birliklerine açık", "en": "<span class=\"live\"></span>Open to new projects and collaborations"}, "hero.h1": {"tr": "Merhaba, ben <span class=\"grad\">Azra Cengiz</span>", "en": "Hi, I’m <span class=\"grad\">Azra Cengiz</span>"}, "hero.role": {"tr": "YBS Öğrencisi <span class=\"sep\">/</span> Veri Analisti Adayı <span class=\"sep\">/</span> Web Geliştirici", "en": "MIS Student <span class=\"sep\">/</span> Aspiring Data Analyst <span class=\"sep\">/</span> Web Developer"}, "hero.about": {"tr": "Akdeniz Üniversitesi Yönetim Bilişim Sistemleri (YBS) bölümünde son sınıf öğrencisiyim. Bilgisayar Programcılığı’ndan mezun oldum ve DGS dikey geçiş sınavıyla bu bölüme geçiş yaptım. Python ve SQL ile kendimi Veri Analisti olarak geliştiriyorum. Okul dışında serbest web projeleri tamamladım ve IBM, Patika ile BTK Akademi’den aldığım sertifikalarla güncel teknolojileri takip ediyorum.", "en": "I’m a final-year Management Information Systems (MIS) student at Akdeniz University. I graduated in Computer Programming and transferred to this department through the DGS vertical transfer exam. I’m developing myself as a Data Analyst with Python and SQL. Outside of school I’ve completed freelance web projects, and I keep up with current technologies through certificates from IBM, Patika and BTK Akademi."}, "hero.cta.projects": {"tr": "Projelerimi Gör", "en": "View My Projects"}, "hero.cta.contact": {"tr": "İletişime Geç", "en": "Get in Touch"}, "contact.email": {"tr": "E-posta", "en": "Email"}, "contact.location": {"tr": "Konum", "en": "Location"}, "contact.locationValue": {"tr": "Antalya, Türkiye", "en": "Antalya, Turkey"}, "exp.eyebrow": {"tr": "Kariyer Yolculuğu", "en": "Career Journey"}, "exp.title": {"tr": "Deneyim", "en": "Experience"}, "exp.sub": {"tr": "Serbest projelerden stajlara — pratiğe dönüşen bir yolculuk.", "en": "From freelance projects to internships — a journey that turns into practice."}, "exp.1.date": {"tr": "Haziran 2026 — Günümüz <span class=\"now-tag\"><span class=\"live\"></span>Şimdi</span>", "en": "June 2026 — Present <span class=\"now-tag\"><span class=\"live\"></span>Now</span>"}, "exp.1.role": {"tr": "Satış Asistanı Stajyeri", "en": "Sales Assistant Intern"}, "exp.1.desc": {"tr": "Satış ve müşteri ilişkileri süreçlerinde aktif rol alarak sahada uygulamalı deneyim kazanıyorum.", "en": "Taking an active role in sales and customer relations processes while gaining hands-on field experience."}, "exp.2.date": {"tr": "Haziran 2025", "en": "June 2025"}, "exp.2.role": {"tr": "Serbest Web Geliştirici", "en": "Freelance Web Developer"}, "exp.2.org": {"tr": "Gursoy Construction &amp; PMB Curtain Walling · Londra (Uzaktan)", "en": "Gursoy Construction &amp; PMB Curtain Walling · London (Remote)"}, "exp.2.desc": {"tr": "İki farklı şirketin kurumsal web sitelerini uçtan uca tasarladım ve yayına aldım; arayüz ve kullanıcı deneyimi optimizasyonları gerçekleştirdim.", "en": "Designed and launched the corporate websites of two different companies end-to-end; carried out interface and user-experience optimizations."}, "exp.3.date": {"tr": "Temmuz 2024 — Ağustos 2024", "en": "July 2024 — August 2024"}, "exp.3.role": {"tr": "Bilgisayar Programcısı Stajyeri", "en": "Computer Programmer Intern"}, "exp.3.org": {"tr": "Ahi Evran Üniversitesi · Kırşehir", "en": "Ahi Evran University · Kırşehir"}, "exp.3.desc": {"tr": "BT süreçlerinde teknik destek sağladım ve yazılım birimine destek verdim.", "en": "Provided technical support in IT processes and assisted the software unit."}, "edu.eyebrow": {"tr": "Akademik Geçmiş", "en": "Academic Background"}, "edu.title": {"tr": "Eğitim", "en": "Education"}, "edu.sub": {"tr": "Programlamadan yönetim bilişim sistemlerine uzanan, DGS geçişiyle güçlenen akademik bir temel.", "en": "An academic foundation stretching from programming to management information systems, strengthened by the DGS transfer."}, "edu.1.lvl": {"tr": "Lisans", "en": "Bachelor’s Degree"}, "edu.1.school": {"tr": "Akdeniz Üniversitesi <span class=\"now-tag\"><span class=\"live\"></span>Şimdi</span>", "en": "Akdeniz University <span class=\"now-tag\"><span class=\"live\"></span>Now</span>"}, "edu.1.field": {"tr": "Yönetim Bilişim Sistemleri&nbsp;&nbsp;(YBS)", "en": "Management Information Systems&nbsp;&nbsp;(MIS)"}, "edu.1.chip1": {"tr": "Eylül 2025", "en": "September 2025"}, "edu.1.chip2": {"tr": "4. Sınıf", "en": "4th Year"}, "edu.2.lvl": {"tr": "Ön Lisans", "en": "Associate Degree"}, "edu.2.school": {"tr": "Ahi Evran Üniversitesi", "en": "Ahi Evran University"}, "edu.2.field": {"tr": "Bilgisayar Programcılığı", "en": "Computer Programming"}, "edu.2.chip1": {"tr": "GNO: 3.01 / 4.00", "en": "GPA: 3.01 / 4.00"}, "edu.2.chip2": {"tr": "Dikey Geçiş&nbsp;&nbsp;(DGS)", "en": "Vertical Transfer&nbsp;&nbsp;(DGS)"}, "skills.eyebrow": {"tr": "Yetkinlikler", "en": "Competencies"}, "skills.title": {"tr": "Yetenekler", "en": "Skills"}, "skills.sub": {"tr": "Veri analizinden web geliştirmeye uzanan teknik araç setim ve insan odaklı becerilerim.", "en": "My technical toolkit spanning from data analysis to web development, alongside my people-focused skills."}, "skills.tech": {"tr": "Teknik Yetenekler", "en": "Technical Skills"}, "skills.tag.python": {"tr": "Python · Veri Analizi", "en": "Python · Data Analysis"}, "skills.tag.sql": {"tr": "SQL &amp; Veritabanları", "en": "SQL &amp; Databases"}, "skills.office": {"tr": "Ofis Araçları", "en": "Office Tools"}, "skills.lang": {"tr": "Yabancı Dil", "en": "Foreign Language"}, "skills.lang.en": {"tr": "İngilizce", "en": "English"}, "skills.lang.level": {"tr": "B1 Seviyesi", "en": "B1 Level"}, "skills.soft": {"tr": "Kişisel Beceriler", "en": "Soft Skills"}, "soft.1": {"tr": "Analitik sorgulama &amp; kök neden analizi", "en": "Analytical inquiry &amp; root-cause analysis"}, "soft.2": {"tr": "Disiplinler arası iletişim", "en": "Cross-disciplinary communication"}, "soft.3": {"tr": "Çözüm odaklı yaklaşım &amp; zaman yönetimi", "en": "Solution-oriented approach &amp; time management"}, "soft.4": {"tr": "Hızlı adaptasyon", "en": "Fast adaptation"}, "soft.5": {"tr": "Aktif dinleme &amp; önceliklendirme", "en": "Active listening &amp; prioritization"}, "soft.6": {"tr": "Planlama &amp; delegasyon", "en": "Planning &amp; delegation"}, "soft.7": {"tr": "Empati", "en": "Empathy"}, "soft.8": {"tr": "Beden dili &amp; topluluk önünde konuşma", "en": "Body language &amp; public speaking"}, "proj.eyebrow": {"tr": "Seçili Çalışmalar", "en": "Selected Work"}, "proj.title": {"tr": "Projeler", "en": "Projects"}, "proj.sub": {"tr": "Uçtan uca tasarlayıp yayına aldığım canlı kurumsal web projeleri.", "en": "Live corporate web projects that I designed and launched end-to-end."}, "proj.1.tag": {"tr": "Kurumsal Web Sitesi · Londra", "en": "Corporate Website · London"}, "proj.1.desc": {"tr": "Cephe sistemleri firması için uçtan uca tasarlanıp yayına alınan, arayüz ve kullanıcı deneyimi optimizasyonlarını içeren kurumsal bir web sitesi.", "en": "A corporate website designed and launched end-to-end for a façade systems company, including interface and user-experience optimizations."}, "proj.visit": {"tr": "Siteyi Ziyaret Et", "en": "Visit Site"}, "proj.2.tag": {"tr": "Kurumsal Web Sitesi · Londra", "en": "Corporate Website · London"}, "proj.2.desc": {"tr": "Bir inşaat firması için marka kimliğiyle uyumlu, modern bir web sitesi; uçtan uca tasarım ve geliştirme süreciyle yayına alındı.", "en": "A modern, brand-aligned website for a construction company, launched through full-cycle design and development."}, "cert.eyebrow": {"tr": "Gelişim &amp; Katkı", "en": "Growth &amp; Contribution"}, "cert.title": {"tr": "Sertifikalar &amp; Gönüllülük", "en": "Certificates &amp; Volunteering"}, "cert.sub": {"tr": "Sürekli öğrenme alışkanlığını belgeleyen eğitimler ve topluma katkı sağlayan çalışmalar.", "en": "Trainings that document a habit of continuous learning, and work that gives back to the community."}, "cert.1": {"tr": "Veri Bilimi Patikası", "en": "Data Science Path"}, "cert.2": {"tr": "Başlangıç Frontend Web Geliştirme Patikası", "en": "Beginner Frontend Web Development Path"}, "cert.3": {"tr": "IBM ile Kodluyoruz: CyberStart Programı", "en": "Coding with IBM: CyberStart Program"}, "cert.4": {"tr": "İleri Düzey Girişimcilik Eğitimi", "en": "Advanced Entrepreneurship Training"}, "cert.5": {"tr": "B1 İngilizce Sertifikası", "en": "B1 English Certificate"}, "cert.vol.title": {"tr": "Gönüllülük — “Kod Adı Çocuk” Topluluğu", "en": "Volunteering — “Kod Adı Çocuk” Community"}, "cert.vol.desc": {"tr": "Kırşehir’deki Ahi Evran Üniversitesi’nde “Kod Adı Çocuk” topluluğunda gönüllü olarak çocuklara giriş seviyesinde robotik ve kodlama atölyeleri verdim.", "en": "Volunteered with the “Kod Adı Çocuk” community at Ahi Evran University, Kırşehir, delivering introductory robotics and coding workshops for children."}, "cta.title": {"tr": "Birlikte çalışalım mı?", "en": "Let’s work together?"}, "cta.text": {"tr": "Veri analizi, web geliştirme ya da yeni bir serbest proje — fikriniz yalnızca bir mesaj uzağınızda.", "en": "Data analysis, web development or a new freelance project — your idea is just one message away."}, "footer.tag": {"tr": "Veri Analisti &amp; Web Geliştirici Adayı — her zaman üreten, her zaman meraklı <span class=\"spark\">✦</span>", "en": "Aspiring Data Analyst &amp; Web Developer — always building, always curious <span class=\"spark\">✦</span>"}, "footer.top": {"tr": "Başa dön", "en": "Back to top"}, "footer.copy": {"tr": "© 2026 · Antalya, Türkiye’de <span class=\"heart\">♥</span> ile hazırlandı", "en": "© 2026 · Crafted with <span class=\"heart\">♥</span> in Antalya, Turkey"}, "skills.tag.network": {"tr": "Temel Ağ Teknolojileri", "en": "Basic Network Technologies"}, "proj.responsive": {"tr": "Mobil Uyumlu", "en": "Responsive"}};
+const META = {"tr": {"title": "Azra Cengiz — YBS Öğrencisi · Veri Analisti · Web Geliştirici", "desc": "Azra Cengiz — Yönetim Bilişim Sistemleri öğrencisi, Veri Analisti adayı ve Serbest Web Geliştirici. Python, SQL ve modern web teknolojileriyle hazırlanmış kişisel portföy."}, "en": {"title": "Azra Cengiz — MIS Student · Data Analyst · Web Developer", "desc": "Azra Cengiz — Management Information Systems student, aspiring Data Analyst and Freelance Web Developer. A personal portfolio built with Python, SQL and modern web technologies."}};
+function applyLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if(I18N[k] && I18N[k][lang] !== undefined) el.innerHTML = I18N[k][lang];
+  });
+  if(META[lang]){
+    document.title = META[lang].title;
+    var md = document.querySelector('meta[name="description"]');
+    if(md) md.setAttribute('content', META[lang].desc);
+  }
+  document.querySelectorAll('#langToggle .lt-opt').forEach(function(o){
+    o.classList.toggle('active', o.dataset.lang === lang);
+  });
+}
+document.querySelectorAll('#langToggle .lt-opt').forEach(function(o){
+  o.addEventListener('click', function(){ applyLang(o.dataset.lang); });
+});
+applyLang('tr');
+
 </script>
 </body>
 </html>
